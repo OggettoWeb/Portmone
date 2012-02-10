@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Oggetto_Portmone>
+            <version>0.1.0</version>
+        </Oggetto_Portmone>
+    </modules>
+    <global>
+        <blocks>
+            <portmone>
+                <class>Oggetto_Portmone_Block</class>
+            </portmone>
+        </blocks>
+        <models>
+            <portmone>
+                <class>Oggetto_Portmone_Model</class>
+            </portmone>
+        </models>
+        <helpers>
+            <portmone>
+                <class>Oggetto_Portmone_Helper</class>
+            </portmone>
+        </helpers>
+    </global>
+    <frontend>
+        <routers>
+            <portmone>
+                <use>standard</use>
+                <args>
+                    <module>Oggetto_Portmone</module>
+                    <frontName>portmone</frontName>
+                </args>
+            </portmone>
+            <checkout>
+                <args>
+                    <modules>
+                        <Oggetto_Portmone before="Mage_Checkout">Oggetto_Portmone_Checkout</Oggetto_Portmone>
+                    </modules>
+                </args>
+            </checkout>
+        </routers>
+    </frontend>
+    <default>
+        <payment>
+            <portmone>
+                <active>1</active>
+                <submit_url>https://www.portmone.com.ua/gateway/</submit_url>
+                <model>portmone/standard</model>
+                <order_status>pending</order_status>
+                <description>order number {{order_id}}</description>
+                <title>Portmone</title>
+                <cctypes>AE,VI,MC,DI</cctypes>
+                <payment_action>authorize</payment_action>
+                <allowspecific>0</allowspecific>
+            </portmone>
+        </payment>
+    </default>
+</config>
+
